@@ -6,8 +6,35 @@
     <title>Unity Web Player | UNJ Rush</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      #unity-container.unity-desktop { width: 100% !important; height: 100% !important; }
+      #unity-canvas { width: 100% !important; height: 100% !important; }
+      #rotate-warning {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        z-index: 9999;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 1.2rem;
+      }
+
+      /* Tampilkan peringatan HANYA jika HP dalam posisi portrait */
+      @media screen and (orientation: portrait) {
+        #rotate-warning {
+          display: flex;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body style="color: #0284c7;">
+    <div id="rotate-warning">
+      <p>📱Harap putar perangkat Anda ke posisi Landscape untuk bermain.</p>
+    </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
